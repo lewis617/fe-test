@@ -22,7 +22,8 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "nightmare": "^2.10.0"
   },
   "dependencies": {
     "puppeteer": "^0.13.0"
