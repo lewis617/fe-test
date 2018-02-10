@@ -1,4 +1,5 @@
-const Nightmare  = require('nightmare');
+const Nightmare = require('nightmare');
+
 const nightmare = Nightmare({ show: true });
 
 const html = `
@@ -38,17 +39,17 @@ const html = `
 </body>
 
 </html>
-`
+`;
 
 nightmare
-  .goto('http://pre.h5.taobao.org/admin/addPage.htm?protoId=45247' + '&CANCEL_CERT=true')
+  .goto('http://pre.h5.taobao.org/admin/addPage.htm?protoId=45247')
   .wait('.kuma-input')
   .insert('.kuma-input[name="domainAccount"]', 'tianke.lyq')
   .insert('.kuma-input[name="password"]', process.env.password)
   .click('.sso-btn-submit')
   .wait('.ace_text-layer .ace_line')
-  .evaluate((html) => {
-    ace.edit('editor').setValue(html);
+  .evaluate((_html) => {
+    ace.edit('editor').setValue(_html); // eslint-disable-line
   }, html)
   .click('#J_SAVE_PREVIEW')
   .wait('#prepubPageModal > div.modal-header > button')

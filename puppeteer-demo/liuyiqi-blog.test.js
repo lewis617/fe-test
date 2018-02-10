@@ -1,11 +1,12 @@
 const puppeteer = require('puppeteer');
 
-let browser, page;
+let browser;
+let page;
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
     headless: false,
-    slowMo: 80
+    slowMo: 80,
   });
   page = await browser.newPage();
 });
@@ -35,7 +36,7 @@ test('goto liuyiqi\'s blog', async () => {
 
 test('expect logo is 刘一奇的个人博客', async () => {
   await page.waitForSelector('#logo');
-  const text = await page.$eval('#logo', el => el.textContent)
+  const text = await page.$eval('#logo', el => el.textContent);
   expect(text).toBe('刘一奇的个人博客');
 });
 
