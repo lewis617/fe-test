@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const Nightmare = require('nightmare');
 
 const nightmare = Nightmare({ show: true });
