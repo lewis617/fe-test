@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 let browser;
 let page;
 
-execSync('defaults delete org.chromium.Chromium AutoSelectCertificateForUrls && defaults write org.chromium.Chromium AutoSelectCertificateForUrls -array-add -string \'{"pattern":"https://[*.]alibaba-inc.com","filter":{"ISSUER":{"CN":"Alilang Class 3 Root"}}}\'');
+execSync('defaults write org.chromium.Chromium AutoSelectCertificateForUrls -array -string \'{"pattern":"https://[*.]alibaba-inc.com","filter":{"ISSUER":{"CN":"Alilang Class 3 Root"}}}\'');
 
 beforeAll(async () => {
   browser = await puppeteer.launch({
